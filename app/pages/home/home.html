@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <h2>Top Goonz</h2>
+  <p>
+    This where you keep track of your goons
+  </p>
+  <p>
+    Take a look at <code>your goons/</code> recent activities.
+  </p>
+  <ion-card *ngFor="let f of gistings; let n = index">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{f.owner.avatar_url}}">
+      </ion-avatar>
+      <h2>{{f.owner.login}}</h2>
+      <p>{{f.updated_at|date}}</p>
+    </ion-item>
+
+    <img src="{{f.img}}">
+
+    <ion-card-content>
+      <p>{{f.content}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{f.comment}} Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>
